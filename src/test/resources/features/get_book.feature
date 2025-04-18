@@ -9,27 +9,26 @@ Feature: GET Book
     Then User should get a status code 200 from the request
     And User should verify that the Book list is not empty
 
-#  @Positive
-#  Scenario: Get a List of Books with a certain Genre
-#    When User makes a GET request to view books with Genre "fiction"
-#    Then User should get a status code 200 from the request
-#    And User should verify that all books in the list have Genre "fiction"
-#
-#  @Positive
-#  Scenario: Get a Book by a valid ID
-#    Given User has an existing book with ID "12345"
-#    When User makes a GET request to view the book with ID "12345"
-#    Then User should get a status code 200 from the request
-#    And User should verify the details of the book with ID "12345"
-#
-#  @Negative
-#  Scenario: Get a Book by an invalid ID
-#    When User makes a GET request to view the book with ID "9999999999"
-#    Then User should get a status code 404 from the request
-#    And User should verify the error message indicates the book was not found
-#
-#  @Negative
-#  Scenario: Get a List of Books with an invalid Genre
-#    When User makes a GET request to view books with Genre "unknown"
-#    Then User should get a status code 200 from the request
-#    And User should verify that the Book list is empty
+  @Positive
+  Scenario: Get a List of Books with a certain Genre
+    When User makes a GET request to view books with Genre "fiction"
+    Then User should get a status code 200 from the request
+    And User should verify that all books in the list have Genre "fiction"
+
+  @Positive
+  Scenario: Get a Book by a valid ID
+    When User makes a GET request to view the book with ID "ZUST9JFx-Sd9X0k"
+    Then User should get a status code 200 from the request
+    And User should verify the title of the book is "Ficciones"
+
+  @Negative
+  Scenario: Get a Book by an invalid ID
+    When User makes a GET request to view the book with ID "9999999999"
+    Then User should get a status code 404 from the request
+    And User should get a response with an "not found" message
+
+  @Negative
+  Scenario: Get a List of Books with an invalid Genre
+    When User makes a GET request to view books with Genre "unknown"
+    Then User should get a status code 200 from the request
+    And User should verify that the Book list is empty

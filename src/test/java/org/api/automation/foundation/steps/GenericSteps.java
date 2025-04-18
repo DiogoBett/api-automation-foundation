@@ -10,6 +10,7 @@ import org.api.automation.foundation.model.MessageDTO;
 import org.junit.Assert;
 
 import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.api.automation.foundation.constants.Constants.*;
@@ -93,6 +94,12 @@ public class GenericSteps {
 
     public static int generateNumber(int from, int to) {
         return ThreadLocalRandom.current().nextInt(from, to + 1);
+    }
+
+    public static String generateParameters(Map<String, String> parameters) {
+        StringBuilder paramString = new StringBuilder("?");
+        parameters.forEach((key, value) -> paramString.append(key).append("=").append(value).append("&"));
+        return paramString.substring(0, paramString.length() - 1);
     }
 
     public static Faker getValue() {

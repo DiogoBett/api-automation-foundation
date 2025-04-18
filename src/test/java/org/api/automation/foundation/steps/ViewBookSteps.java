@@ -6,12 +6,14 @@ import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
 import org.api.automation.foundation.model.BookDTO;
 
+import java.util.Collections;
 import java.util.List;
 
 import static org.api.automation.foundation.constants.Constants.*;
+import static org.api.automation.foundation.steps.GenericSteps.generateParameters;
 import static org.api.automation.foundation.steps.Hooks.context;
 import static org.api.automation.foundation.utils.JSONUtil.jsonToDto;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 @Slf4j
 public class ViewBookSteps {
@@ -21,10 +23,44 @@ public class ViewBookSteps {
         getBookList(context.requestSetup(SCOPE_EXAMPLE_1));
     }
 
+    @When("User makes a GET request to view the book with ID {string}")
+    public void viewBookWithId(String bookId) {
+        getBook(context.requestSetup(SCOPE_EXAMPLE_1), bookId);
+    }
+
+    @When("User makes a GET request to view books with Genre {string}")
+    public void viewBookWithGenre(String bookGenre) {
+        RequestSpecification request = context.requestSetup(SCOPE_EXAMPLE_1);
+        request.queryParam(QUERY_GENRE, bookGenre);
+
+        context.session.put(SAVED_PARAMETERS, generateParameters(Collections.singletonMap(QUERY_GENRE, bookGenre)));
+        getBookList(request);
+    }
+
+    @Then("User should verify the title of the book is {string}")
+    public void verifyBookTitle(String bookTitle) {
+        BookDTO book = (BookDTO) jsonToDto(context.response.asPrettyString(), DTO_BOOK);
+        assertEquals(bookTitle, book.getTitle());
+    }
+
+    @Then("User should verify that all books in the list have Genre {string}")
+    public void userShouldVerifyThatAllBooksInTheListHaveGenre(String bookGenre) {
+        List<BookDTO> bookList = (List<BookDTO>) jsonToDto(context.response.asPrettyString(), DTO_BOOK_LIST);
+        for (BookDTO book : bookList) {
+            assertEquals(bookGenre, book.getGenre());
+        }
+    }
+
     @Then("User should verify that the Book list is not empty")
     public void verifyBookListIsNotEmpty() {
         List<BookDTO> bookList = (List<BookDTO>) jsonToDto(context.response.asPrettyString(), DTO_BOOK_LIST);
         assertFalse(bookList.isEmpty());
+    }
+
+    @Then("User should verify that the Book list is empty")
+    public void verifyBookListIsEmpty() {
+        List<BookDTO> bookList = (List<BookDTO>) jsonToDto(context.response.asPrettyString(), DTO_BOOK_LIST);
+        assertTrue(bookList.isEmpty());
     }
 
     private void getBookList(RequestSpecification request) {
