@@ -1,0 +1,56 @@
+name: Run Automated Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+env:
+  MAVEN_CLI_OPTS: "--batch-mode --no-transfer-progress"
+  MAVEN_OPTS: "-DskipTests=false"
+  CI_PIPELINE_IID: "${{ github.run_id }}"
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Environment
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Compile Code
+        run: |
+          echo "Compiling code..."
+          mvn ${MAVEN_CLI_OPTS} ${MAVEN_OPTS} clean compile -DBUILD_VERSION=${CI_PIPELINE_IID}
+
+      - name: Check Dependencies
+        run: |
+          echo "Checking Dependencies..."
+          mvn ${MAVEN_CLI_OPTS} ${MAVEN_OPTS} dependency:resolve -DBUILD_VERSION=${CI_PIPELINE_IID}
+
+      - name: Run Automated Tests
+        run: mvn ${MAVEN_CLI_OPTS} ${MAVEN_OPTS} test
+
+      - name: Logging
+        run: |
+          echo "Extracting Logs..."
+          cat target/logs/execution.log || echo "No execution.log found"
+          echo "Generating Test Report..."
+
+      - name: Test Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: test_report
+          path: |
+            target/generated-report.html
+            target/logs/execution.log
+          retention-days: 7
