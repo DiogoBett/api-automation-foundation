@@ -14,16 +14,14 @@ public class Constants {
     public static final String CUCUMBER_PLUGIN_JSON = "json:target/cucumber-report/cucumber.json";
     public static final String CUCUMBER_PLUGIN_LISTENER = "org.api.automation.foundation.utils.TestListener";
     public static final String CUCUMBER_PLUGIN_PRETTY = "pretty:target/cucumber-report/cucumber.txt";
+    // TODO: Revert CUCUMBER_TAGS
     // Temporary - Original: @GET or @POST or @PATCH or @DELETE
     public static final String CUCUMBER_TAGS = "@GET";
     public static final String DTO_BOOK = "bookDto";
     public static final String DTO_BOOK_LIST = "bookListDto";
     public static final String DTO_MESSAGE = "exampleDto";
     public static final String EMPTY_JSON = "{}";
-    public static final String EMPTY_LIST = "[]";
     public static final String EMPTY_SPACE = " ";
-    public static final String EMPTY_STRING = "";
-    public static final String EMPTY_UNDERSCORE = "_";
     public static final String ENDPOINT_EXAMPLE_1 = "/books";
     public static final String ENDPOINT_EXAMPLE_2 = "/books/{id}";
     public static final String ENDPOINT_OAUTH2 = "/OAuth2ClientCredentialsGrant/v1/token";
@@ -43,7 +41,6 @@ public class Constants {
     public static final String LOG_ERROR_IO_PROPERTIES = "IO EXCEPTION WHILE SETTING UP PROPERTIES FILE";
     public static final String LOG_ERROR_IO_ZIP = "IO EXCEPTION WHILE ZIPPING FILE";
     public static final String LOG_ERROR_IO_FILE = "IO EXCEPTION WHILE CREATING FILE";
-    public static final String LOG_ERROR_INVALID_PROPERTY = "Property OR Value doesn't exist: \n";
     public static final String LOG_ERROR_READ_DTO = "Unable to read DTO: \n";
     public static final String LOG_ERROR_READ_JSON_FILE = "Unable to read JSON file from: \n";
     public static final String LOG_ERROR_READ_JSON_STRING = "Unable to read JSON string: \n";
@@ -64,12 +61,10 @@ public class Constants {
     public static final String LOG_INFO_TEST_START = "  START - Scenario: ";
     public static final String LOG_INFO_TEST_STATUS = "  STATUS --> ";
     public static final String LOG_INFO_TEST_STATUS_MULTIPLE = "  STATUS #";
-    public static final String LOG_INFO_HEADERS_DEFAULT = "Add Default Headers: ";
-    public static final String LOG_INFO_HEADERS_SCOPE = "Add Scope Specific Headers for Scope: ";
+    public static final String LOG_WARN_INVALID_PROPERTY = "Property OR Value doesn't exist: \n";
     public static final String PARAMETER_ID = "{id}";
     public static final String PATH_JSON = "src/test/resources/json/";
     public static final String PATH_PROPERTIES = "src/test/resources/config.properties";
-    public static final String PATTERN_EXAMPLE = "dd/MM/yyyy";
     public static final String PROPERTY_API_ID = "automation.api.id";
     public static final String PROPERTY_API_SC = "automation.api.sc";
     public static final String PROPERTY_ENVIRONMENT = "automation.api.environment";
@@ -77,7 +72,6 @@ public class Constants {
     public static final String PROPERTY_URL_2 = "project.url.2";
     public static final String PROPERTY_URL_3 = "project.url.3";
     public static final String PROPERTY_TOKEN_OAUTH = "automation.api.token.oauth";
-    public static final String PROJECT_NAME = "api-automation-foundation-test";
     public static final String QUERY_GENRE = "genre";
     public static final String SAVED_ID = "savedId";
     public static final String SAVED_ENDPOINT = "savedEndpoint";
@@ -103,8 +97,5 @@ public class Constants {
     public static final String TEST_REPORT_RESPONSE = "Response";
     public static final String TEST_REPORT_STATUS = "Status";
     public static final String TAG_MULTIPLE = "@Multiple";
-    public static final int TIME_FIVE_SECONDS = 5;
-    public static final int TIME_TEN_SECONDS = 10;
-    public static final int TIME_ONE_MINUTE_IN_SECONDS = 60;
     public static final int TIME_ONE_SECOND_IN_MILLIS = 1000;
 }

@@ -35,10 +35,10 @@ public class HeadersUtil {
 
     public void setupScope(String scope) {
         if (this.scope == null || !this.scope.equals(scope)) {
-            if (scope.equals(SCOPE_EXAMPLE_2)) {
-                log.info(LOG_INFO_HEADERS_SCOPE + scope);
+            if (scope.equals(SCOPE_EXAMPLE_1)) {
+                // Scope Specific Headers
             } else {
-                log.info(LOG_INFO_HEADERS_DEFAULT + scope);
+                // Default Headers
             }
             AuthenticationUtil auth = new AuthenticationUtil(scope);
             this.authToken = auth.getAuthenticationToken();

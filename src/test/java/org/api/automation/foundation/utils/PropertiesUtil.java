@@ -38,7 +38,7 @@ public class PropertiesUtil {
         try {
             properties.setProperty(key, value);
         } catch (NullPointerException e) {
-            log.error(LOG_ERROR_INVALID_PROPERTY + "Key: " + key + "\n Value: " + value);
+            log.warn(LOG_WARN_INVALID_PROPERTY + "Property: " + key + "\nValue: " + value);
         }
     }
 
