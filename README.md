@@ -17,12 +17,15 @@
 
 * Tags
   ```Gherkin
-  @Feature1
-    # GET Description of Feature 1
-  @Feature2
-    # POST Description of Feature 1
-  @Feature3
-    # PATCH Description of Feature 1
+  @GET
+    # Retrieves a list of all books available in the library;
+    # Fetches details of a specific book by its ID.
+  @POST
+    # Adds a new book to the library with the provided details.
+  @PATCH
+    # Updates the information of an existing book identified by its ID.
+  @DELETE
+    # Removes a book from the library using its ID.
   ```
 
 ### Key Components
