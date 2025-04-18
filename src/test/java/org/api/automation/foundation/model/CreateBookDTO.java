@@ -16,5 +16,5 @@ public class CreateBookDTO {
     private String genre;
 
     @JsonProperty("yearPublished")
-    private int yearPublished;
+    private int year;
 }

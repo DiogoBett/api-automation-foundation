@@ -88,7 +88,6 @@ public class Constants {
     public static final String PROPERTY_TOKEN_OAUTH = "automation.api.token.oauth";
     public static final String PROJECT_NAME = "api-automation-foundation-test";
     public static final String QUERY_EXAMPLE = "example";
-    public static final String SAVED_EXAMPLE = "savedExample";
     public static final String SAVED_ID = "savedId";
     public static final String SAVED_ENDPOINT = "savedEndpoint";
     public static final String SAVED_FAKER = "savedFaker";
@@ -97,6 +96,14 @@ public class Constants {
     public static final String SAVED_REQUEST = "savedRequest";
     public static final String SAVED_RESPONSE = "savedResponse";
     public static final String SAVED_PARAMETERS = "savedParameters";
+    public static final String SAVED_BOOK_ID = "savedBookId";
+    public static final String SAVED_BOOK_NAME = "savedBookName";
+    public static final String SAVED_BOOK_GENRE = "savedBookGenre";
+    public static final String SAVED_BOOK_AUTHOR = "savedBookAuthor";
+    public static final String SAVED_BOOK_CREATED_AT = "savedBookCreatedAt";
+    public static final String SAVED_BOOK_CHECKED_OUT = "savedBookCheckedOut";
+    public static final String SAVED_BOOK_YEAR_PUBLISHED = "savedBookYearPublished";
+    public static final String SCOPE_EXAMPLE_1 = "EXAMPLE_1";
     public static final String SCOPE_EXAMPLE_2 = "EXAMPLE_2";
     public static final String SCOPE_EXAMPLE_3 = "EXAMPLE_3";
     public static final String TEST_REPORT_ENDPOINT = "Endpoint";
