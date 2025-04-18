@@ -75,7 +75,7 @@ public class Constants {
     public static final String LOG_INFO_TEST_STATUS_MULTIPLE = "  STATUS #";
     public static final String LOG_INFO_HEADERS_DEFAULT = "Add Default Headers: ";
     public static final String LOG_INFO_HEADERS_SCOPE = "Add Scope Specific Headers for Scope: ";
-    public static final String PARAMETER_EXAMPLE = "{id}";
+    public static final String PARAMETER_ID = "{id}";
     public static final String PATH_JSON = "src/test/resources/json/";
     public static final String PATH_PROPERTIES = "src/test/resources/config.properties";
     public static final String PATTERN_EXAMPLE = "dd/MM/yyyy";
