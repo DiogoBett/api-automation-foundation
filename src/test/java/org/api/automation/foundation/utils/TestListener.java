@@ -5,8 +5,8 @@ import io.cucumber.plugin.event.*;
 import lombok.extern.slf4j.Slf4j;
 import org.api.automation.foundation.steps.Hooks;
 
-import static com.vodafone.gfp.automation.steps.GenericSteps.getEndpoint;
 import static org.api.automation.foundation.constants.Constants.*;
+import static org.api.automation.foundation.steps.GenericSteps.getEndpoint;
 
 @Slf4j
 public class TestListener implements ConcurrentEventListener {
