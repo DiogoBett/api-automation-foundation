@@ -8,9 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.api.automation.foundation.utils.TestContext;
 import org.junit.Assert;
 
-import static com.vodafone.gfp.automation.steps.GenericSteps.getEndpoint;
-import static com.vodafone.gfp.automation.steps.GenericSteps.hasTag;
 import static org.api.automation.foundation.constants.Constants.*;
+import static org.api.automation.foundation.steps.GenericSteps.getEndpoint;
+import static org.api.automation.foundation.steps.GenericSteps.hasTag;
 
 @Slf4j
 public class Hooks {
