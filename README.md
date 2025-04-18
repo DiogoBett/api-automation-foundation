@@ -1,8 +1,8 @@
 ## api-automation-foundation
 
 ### Overview:
-* This project serves as a foundation for API automation, designed to validate the integrity and functionality of microservices through automated testing of requests and responses for GET, PATCH, and POST methods;
-* Currently, it uses the free Postman 101 Training APIs as an example for demonstration and development of test scenarios.
+* This project serves as a foundation for API automation, designed to validate the integrity and functionality of microservices through automated testing of requests and responses for several different methods;
+* Currently, it uses the 'postman-library-api' as an example for demonstration and development of test scenarios.
 
 ### Requirements
 * Java (17 or above);
@@ -68,9 +68,11 @@
 * Lombok - https://projectlombok.org/features/
 
 ### FAQ / Troubleshooting
-* Currently Developing - Free API for Automation Example:
-  * https://glitch.com/edit/#!/postman-library-api
-  * https://www.postman.com/postman/postman-classroom-program/collection/7ifvzlh/library-api-reference?action=share&source=copy-link&creator=30363938
+* Currently In Development (WIP):
+  * A
+  * B
+* Uses the 'postman-library-api' as an example;
+  * https://glitch.com/edit/#!/postman-library-api 
 * Additional Documentation Here (TODO):
   * A
   * B
