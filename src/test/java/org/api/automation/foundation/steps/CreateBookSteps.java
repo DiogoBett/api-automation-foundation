@@ -4,7 +4,7 @@ import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
-import org.api.automation.foundation.model.CreateBookDTO;
+import org.api.automation.foundation.model.BookDTO;
 
 import java.time.LocalDate;
 
@@ -23,7 +23,7 @@ public class CreateBookSteps {
     }
 
     @When("User makes several POST requests to create {int} valid books")
-    public void userMakesARequestToCreateMultipleValidOrders(int size) {
+    public void userMakesARequestToCreateMultipleValidBooks(int size) {
         for (int i = 0; i < size; i++) {
             userMakesARequestToCreateAValidBook();
             context.saveTestContext();
@@ -36,7 +36,7 @@ public class CreateBookSteps {
     }
 
     @When("User makes several POST requests to create {int} invalid books")
-    public void userMakesARequestToCreateXNumberInvalidOrders(int size) {
+    public void userMakesARequestToCreateXNumberInvalidBooks(int size) {
         for (int i = 0; i < size; i++) {
             userMakesARequestToCreateAInvalidBook();
             context.saveTestContext();
@@ -65,8 +65,8 @@ public class CreateBookSteps {
         context.response = request.post();
     }
 
-    public static CreateBookDTO generateBook() {
-        CreateBookDTO requestDto = new CreateBookDTO();
+    public static BookDTO generateBook() {
+        BookDTO requestDto = new BookDTO();
         requestDto.setTitle(getValue().book().title());
         requestDto.setAuthor(getValue().book().author());
         requestDto.setGenre(getValue().book().genre());

@@ -17,7 +17,7 @@ public class Constants {
     public static final String CUCUMBER_TAGS = "@Feature1 or @Feature2 or @Feature3";
     public static final String DTO_BOOK = "bookDto";
     public static final String DTO_BOOK_LIST = "bookListDto";
-    public static final String DTO_RESPONSE = "exampleDto";
+    public static final String DTO_MESSAGE = "exampleDto";
     public static final String EMPTY_JSON = "{}";
     public static final String EMPTY_LIST = "[]";
     public static final String EMPTY_SPACE = " ";

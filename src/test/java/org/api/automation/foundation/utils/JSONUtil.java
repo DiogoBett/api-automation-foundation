@@ -8,8 +8,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import org.api.automation.foundation.model.ExampleDTO;
-import org.api.automation.foundation.model.ViewBookDTO;
+import org.api.automation.foundation.model.BookDTO;
+import org.api.automation.foundation.model.MessageDTO;
 import org.junit.Assert;
 
 import java.io.File;
@@ -29,11 +29,11 @@ public class JSONUtil {
             switch (dto) {
                 // Add Additional Response DTO(s) Here
                 case DTO_BOOK:
-                    return objectMapper.readValue(json, ViewBookDTO.class);
+                    return objectMapper.readValue(json, BookDTO.class);
                 case DTO_BOOK_LIST:
-                    return objectMapper.readValue(json, new TypeReference<List<ViewBookDTO>>() {});
-                case DTO_RESPONSE:
-                    return objectMapper.readValue(json, ExampleDTO.class);
+                    return objectMapper.readValue(json, new TypeReference<List<BookDTO>>() {});
+                case DTO_MESSAGE:
+                    return objectMapper.readValue(json, MessageDTO.class);
                 default:
                     String defaultError = LOG_ERROR_DTO_ARGUMENT + dto;
                     log.error(defaultError);

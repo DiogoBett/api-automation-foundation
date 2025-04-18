@@ -48,9 +48,9 @@ public class GenericSteps {
         }
     }
 
-    @Then("User should get an error response with an {string} message")
-    public void validateErrorResponseMessage(String errorMessage) {
-        ExampleDTO responseDto = (ExampleDTO) jsonToDto(context.response.asPrettyString(), DTO_RESPONSE);
+    @Then("User should get a response with an {string} message")
+    public void validateResponseMessage(String errorMessage) {
+        MessageDTO responseDto = (MessageDTO) jsonToDto(context.response.asPrettyString(), DTO_MESSAGE);
         String assertionError = LOG_ERROR_EXPECTED + errorMessage + LOG_ERROR_ACTUAL + responseDto.getMessage();
         assertTrue(assertionError, responseDto.getMessage().contains(errorMessage));
     }
@@ -61,20 +61,20 @@ public class GenericSteps {
     }
 
     private void validateBookStatus(String bookId, String checkedStatus) {
-        ViewBookDTO bookDto = (ViewBookDTO) jsonToDto(context.response.asPrettyString(), DTO_BOOK);
+        BookDTO bookDto = (BookDTO) jsonToDto(context.response.asPrettyString(), DTO_BOOK);
         assertEquals(checkedStatus, Boolean.toString(bookDto.isCheckedOut()));
         assertEquals(bookId, bookDto.getId());
     }
 
     private static void saveBookInformation() {
-        ViewBookDTO bookDto = (ViewBookDTO) jsonToDto(context.response.asPrettyString(), DTO_BOOK);
+        BookDTO bookDto = (BookDTO) jsonToDto(context.response.asPrettyString(), DTO_BOOK);
         context.session.put(SAVED_BOOK_ID, bookDto.getId());
         context.session.put(SAVED_BOOK_NAME, bookDto.getTitle());
         context.session.put(SAVED_BOOK_GENRE, bookDto.getGenre());
         context.session.put(SAVED_BOOK_AUTHOR, bookDto.getAuthor());
+        context.session.put(SAVED_BOOK_YEAR_PUBLISHED, bookDto.getYear());
         context.session.put(SAVED_BOOK_CREATED_AT, bookDto.getCreatedAt());
         context.session.put(SAVED_BOOK_CHECKED_OUT, bookDto.isCheckedOut());
-        context.session.put(SAVED_BOOK_YEAR_PUBLISHED, bookDto.getYearPublished());
     }
 
     public static boolean hasTag(Scenario scenario, String tag) {
@@ -83,12 +83,6 @@ public class GenericSteps {
 
     public static int generateNumber(int from, int to) {
         return ThreadLocalRandom.current().nextInt(from, to + 1);
-    }
-
-    public static long generateNumberWithDigits(int digits) {
-        long min = (long) Math.pow(10, digits - 1);
-        long max = (long) Math.pow(10, digits) - 1;
-        return ThreadLocalRandom.current().nextLong(min, max + 1);
     }
 
     public static Faker getValue() {
