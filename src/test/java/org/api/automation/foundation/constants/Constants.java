@@ -14,7 +14,8 @@ public class Constants {
     public static final String CUCUMBER_PLUGIN_JSON = "json:target/cucumber-report/cucumber.json";
     public static final String CUCUMBER_PLUGIN_LISTENER = "org.api.automation.foundation.utils.TestListener";
     public static final String CUCUMBER_PLUGIN_PRETTY = "pretty:target/cucumber-report/cucumber.txt";
-    public static final String CUCUMBER_TAGS = "@Feature1 or @Feature2 or @Feature3";
+    // Temporary - Original: @GET or @POST or @PATCH or @DELETE
+    public static final String CUCUMBER_TAGS = "@GET";
     public static final String DTO_BOOK = "bookDto";
     public static final String DTO_BOOK_LIST = "bookListDto";
     public static final String DTO_MESSAGE = "exampleDto";
