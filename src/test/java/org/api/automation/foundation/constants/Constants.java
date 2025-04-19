@@ -14,9 +14,7 @@ public class Constants {
     public static final String CUCUMBER_PLUGIN_JSON = "json:target/cucumber-report/cucumber.json";
     public static final String CUCUMBER_PLUGIN_LISTENER = "org.api.automation.foundation.utils.TestListener";
     public static final String CUCUMBER_PLUGIN_PRETTY = "pretty:target/cucumber-report/cucumber.txt";
-    // TODO: Revert CUCUMBER_TAGS
-    // Temporary - Original: @GET or @POST or @PATCH or @DELETE
-    public static final String CUCUMBER_TAGS = "@GET or @POST";
+    public static final String CUCUMBER_TAGS = "@GET or @POST or @PATCH or @DELETE";
     public static final String DTO_BOOK = "bookDto";
     public static final String DTO_BOOK_LIST = "bookListDto";
     public static final String DTO_MESSAGE = "exampleDto";
@@ -45,7 +43,7 @@ public class Constants {
     public static final String LOG_ERROR_READ_JSON_FILE = "Unable to read JSON file from: \n";
     public static final String LOG_ERROR_READ_JSON_STRING = "Unable to read JSON string: \n";
     public static final String LOG_ERROR_RESPONSE = "RESPONSE FROM TEST CONTEXT DOESN'T EXIST";
-    public static final String LOG_ERROR_WAIT = "UNABLE TO WAIT (X) SECONDS: ";
+    //public static final String LOG_ERROR_WAIT = "UNABLE TO WAIT (X) SECONDS: ";
     public static final String LOG_INFO_ENDPOINT = "  ENDPOINT: ";
     public static final String LOG_INFO_REQUEST = "**********************REQUEST**************************";
     public static final String LOG_INFO_REQUEST_MULTIPLE = "**********************REQUEST #";
@@ -99,5 +97,5 @@ public class Constants {
     public static final String TEST_REPORT_RESPONSE = "Response";
     public static final String TEST_REPORT_STATUS = "Status";
     public static final String TAG_MULTIPLE = "@Multiple";
-    public static final int TIME_ONE_SECOND_IN_MILLIS = 1000;
+    //public static final int TIME_ONE_SECOND_IN_MILLIS = 1000;
 }
