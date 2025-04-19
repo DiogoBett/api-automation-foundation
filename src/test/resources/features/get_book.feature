@@ -16,13 +16,13 @@ Feature: GET Book
     And User should verify that all books in the list have Genre "fiction"
 
   @Positive
-  Scenario: Get a Book by a valid ID
+  Scenario: Get a Book with a valid ID
     When User makes a GET request to view the book with ID "ZUST9JFx-Sd9X0k"
     Then User should get a status code 200 from the request
     And User should verify the title of the book is "Ficciones"
 
   @Negative
-  Scenario: Get a Book by an invalid ID
+  Scenario: Get a Book with an invalid ID
     When User makes a GET request to view the book with ID "9999999999"
     Then User should get a status code 404 from the request
     And User should get a response with an "not found" message
