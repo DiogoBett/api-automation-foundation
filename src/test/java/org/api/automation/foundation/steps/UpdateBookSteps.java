@@ -50,8 +50,12 @@ public class UpdateBookSteps {
         String endpoint = ENDPOINT_EXAMPLE_2.replace(PARAMETER_ID, context.session.get(SAVED_BOOK_ID).toString());
         request.basePath(endpoint);
 
+        context.session.put(SAVED_ENDPOINT, endpoint);
+        context.session.remove(SAVED_PARAMETERS);
+        context.response = request.get();
+
         BookDTO expectedDto = (BookDTO) context.session.get(SAVED_BOOK_DTO);
-        BookDTO actualDto = (BookDTO) jsonToDto(request.get().asPrettyString(), DTO_BOOK);
+        BookDTO actualDto = (BookDTO) jsonToDto(context.response.asPrettyString(), DTO_BOOK);
 
         assertEquals(expectedDto.getTitle(), actualDto.getTitle());
         assertEquals(expectedDto.getAuthor(), actualDto.getAuthor());
