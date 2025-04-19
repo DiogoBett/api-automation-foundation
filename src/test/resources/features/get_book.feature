@@ -34,6 +34,13 @@ Feature: GET Book
     Then User should get a status code 200 from the request
     And User should verify the title of the book is "Ficciones"
 
+  @Positive
+  Scenario: Get a Book with a valid information
+    Given User has created a book previously and saved its information
+    When User makes a GET request to view the book with saved ID
+    Then User should get a status code 200 from the request
+    And User should verify the created date of the book is today
+
   @Negative
   Scenario: Get a Book with an invalid ID
     When User makes a GET request to view the book with ID "9999999999"

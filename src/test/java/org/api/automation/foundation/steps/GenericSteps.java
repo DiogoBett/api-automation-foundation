@@ -34,6 +34,7 @@ public class GenericSteps {
         postBook(dtoToString(generateBook()));
         assertEquals(201, context.response.getStatusCode());
         saveBookInformation((BookDTO) jsonToDto(context.session.get(SAVED_REQUEST).toString(), DTO_BOOK));
+        context.session.remove(SAVED_REQUEST);
         getBookInformation();
     }
 

@@ -6,6 +6,7 @@ import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
 import org.api.automation.foundation.model.BookDTO;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -26,6 +27,11 @@ public class ViewBookSteps {
     @When("User makes a GET request to view the book with ID {string}")
     public void viewBookWithId(String bookId) {
         getBook(context.requestSetup(SCOPE_EXAMPLE_1), bookId);
+    }
+
+    @When("User makes a GET request to view the book with saved ID")
+    public void viewSavedBookWithId() {
+        getBook(context.requestSetup(SCOPE_EXAMPLE_1), context.session.get(SAVED_BOOK_ID).toString());
     }
 
     @When("User makes a GET request to view books with Title {string}")
@@ -59,6 +65,12 @@ public class ViewBookSteps {
     public void verifyBookTitle(String bookTitle) {
         BookDTO book = (BookDTO) jsonToDto(context.response.asPrettyString(), DTO_BOOK);
         assertEquals(bookTitle, book.getTitle());
+    }
+
+    @Then("User should verify the created date of the book is today")
+    public void verifyBookDate() {
+        BookDTO book = (BookDTO) jsonToDto(context.response.asPrettyString(), DTO_BOOK);
+        assertEquals(LocalDateTime.now().toLocalDate(), book.getCreatedAt().toLocalDate());
     }
 
     @Then("User should verify that all books in the list have Title {string}")
@@ -97,7 +109,7 @@ public class ViewBookSteps {
         assertTrue(bookList.isEmpty());
     }
 
-    private void getBookList(RequestSpecification request) {
+    public static void getBookList(RequestSpecification request) {
         request.basePath(ENDPOINT_EXAMPLE_1);
 
         context.session.put(SAVED_ENDPOINT, ENDPOINT_EXAMPLE_1);
@@ -109,6 +121,7 @@ public class ViewBookSteps {
         request.basePath(endpoint);
 
         context.session.put(SAVED_ENDPOINT, endpoint);
+        context.session.remove(SAVED_PARAMETERS);
         context.response = request.get();
     }
 }
