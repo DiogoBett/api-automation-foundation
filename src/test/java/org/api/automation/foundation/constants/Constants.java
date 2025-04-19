@@ -73,6 +73,8 @@ public class Constants {
     public static final String PROPERTY_TOKEN_OAUTH = "automation.api.token.oauth";
     public static final String REGEX_MISSING_PROPERTY = "should have required property '\\w+'";
     public static final String QUERY_GENRE = "genre";
+    public static final String QUERY_SEARCH = "search";
+    public static final String QUERY_STATUS = "checkedOut";
     public static final String SAVED_ID = "savedId";
     public static final String SAVED_ENDPOINT = "savedEndpoint";
     public static final String SAVED_FAKER = "savedFaker";

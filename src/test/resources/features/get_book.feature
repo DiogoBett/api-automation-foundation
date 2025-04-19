@@ -10,6 +10,19 @@ Feature: GET Book
     And User should verify that the Book list is not empty
 
   @Positive
+  Scenario: Get a List of Books with a certain Name
+    Given User makes a POST request to create a book with the Title "Example #1"
+    When User makes a GET request to view books with Title "Example #1"
+    Then User should get a status code 200 from the request
+    And User should verify that all books in the list have Title "Example #1"
+
+  @Positive
+  Scenario: Get a List of Books with a certain 'checkedOut' Status
+    When User makes a GET request to view books with Checked Out Status "true"
+    Then User should get a status code 200 from the request
+    And User should verify that all books in the list have Checked Out Status "true"
+
+  @Positive
   Scenario: Get a List of Books with a certain Genre
     When User makes a GET request to view books with Genre "fiction"
     Then User should get a status code 200 from the request

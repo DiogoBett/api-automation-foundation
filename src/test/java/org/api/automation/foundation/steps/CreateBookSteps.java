@@ -1,5 +1,6 @@
 package org.api.automation.foundation.steps;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
@@ -20,6 +21,13 @@ import static org.junit.Assert.assertTrue;
 
 @Slf4j
 public class CreateBookSteps {
+
+    @Given("User makes a POST request to create a book with the Title {string}")
+    public void createBookWithSpecificTitle(String bookTitle) {
+        BookDTO book = generateBook();
+        book.setTitle(bookTitle);
+        postBook(dtoToString(book));
+    }
 
     @When("User makes a POST request to create a valid book")
     public void createValidBook() {

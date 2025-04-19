@@ -28,7 +28,7 @@ public class ViewBookSteps {
         getBook(context.requestSetup(SCOPE_EXAMPLE_1), bookId);
     }
 
-    @When("User makes a GET request to view books with Name {string}")
+    @When("User makes a GET request to view books with Title {string}")
     public void viewBookWithName(String bookTitle) {
         RequestSpecification request = context.requestSetup(SCOPE_EXAMPLE_1);
         request.queryParam(QUERY_SEARCH, bookTitle);
@@ -46,7 +46,7 @@ public class ViewBookSteps {
         getBookList(request);
     }
 
-    @When("User makes a GET request to view books with {string} Status {string}")
+    @When("User makes a GET request to view books with Checked Out Status {string}")
     public void viewBookWithStatus(String bookStatus) {
         RequestSpecification request = context.requestSetup(SCOPE_EXAMPLE_1);
         request.queryParam(QUERY_STATUS, bookStatus);
@@ -61,11 +61,27 @@ public class ViewBookSteps {
         assertEquals(bookTitle, book.getTitle());
     }
 
+    @Then("User should verify that all books in the list have Title {string}")
+    public void verifyBookListTitle(String bookTitle) {
+        List<BookDTO> bookList = (List<BookDTO>) jsonToDto(context.response.asPrettyString(), DTO_BOOK_LIST);
+        for (BookDTO book : bookList) {
+            assertEquals(bookTitle, book.getTitle());
+        }
+    }
+
     @Then("User should verify that all books in the list have Genre {string}")
-    public void userShouldVerifyThatAllBooksInTheListHaveGenre(String bookGenre) {
+    public void verifyBookListGenre(String bookGenre) {
         List<BookDTO> bookList = (List<BookDTO>) jsonToDto(context.response.asPrettyString(), DTO_BOOK_LIST);
         for (BookDTO book : bookList) {
             assertEquals(bookGenre, book.getGenre());
+        }
+    }
+
+    @Then("User should verify that all books in the list have Checked Out Status {string}")
+    public void verifyBookListStatus(String bookStatus) {
+        List<BookDTO> bookList = (List<BookDTO>) jsonToDto(context.response.asPrettyString(), DTO_BOOK_LIST);
+        for (BookDTO book : bookList) {
+            assertEquals(Boolean.parseBoolean(bookStatus), book.isCheckedOut());
         }
     }
 
