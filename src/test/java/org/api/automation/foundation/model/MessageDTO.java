@@ -18,7 +18,7 @@ public class MessageDTO {
     private List<ErrorDTO> errors;
 
     @Data
-    private static class ErrorDTO {
+    public static class ErrorDTO {
 
         @JsonProperty("path")
         private String path;
