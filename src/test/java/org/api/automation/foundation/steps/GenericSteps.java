@@ -4,10 +4,13 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
 import org.api.automation.foundation.model.BookDTO;
 import org.api.automation.foundation.model.MessageDTO;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
@@ -16,6 +19,7 @@ import static org.api.automation.foundation.constants.Constants.*;
 import static org.api.automation.foundation.steps.CreateBookSteps.generateBook;
 import static org.api.automation.foundation.steps.CreateBookSteps.postBook;
 import static org.api.automation.foundation.steps.Hooks.context;
+import static org.api.automation.foundation.steps.ViewBookSteps.getBookList;
 import static org.api.automation.foundation.utils.JSONUtil.dtoToString;
 import static org.api.automation.foundation.utils.JSONUtil.jsonToDto;
 import static org.api.automation.foundation.utils.PropertiesUtil.getProperty;
@@ -26,10 +30,11 @@ import static org.junit.Assert.assertTrue;
 public class GenericSteps {
 
     @Given("User has created a book previously and saved its information")
-    public static void createAndSaveBook() {
+    public void createAndSaveBook() {
         postBook(dtoToString(generateBook()));
         assertEquals(201, context.response.getStatusCode());
         saveBookInformation((BookDTO) jsonToDto(context.session.get(SAVED_REQUEST).toString(), DTO_BOOK));
+        getBookInformation();
     }
 
     @Then("User should get a status code {int} from the request")
@@ -59,6 +64,22 @@ public class GenericSteps {
         validateBookStatus(bookId, checkedStatus);
     }
 
+    private void getBookInformation() {
+        RequestSpecification request = context.requestSetup(SCOPE_EXAMPLE_1);
+        request.queryParam(QUERY_SEARCH, context.session.get(SAVED_BOOK_TITLE));
+        request.queryParam(QUERY_GENRE, context.session.get(SAVED_BOOK_GENRE));
+
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put(QUERY_SEARCH, context.session.get(SAVED_BOOK_TITLE).toString());
+        parameters.put(QUERY_GENRE, context.session.get(SAVED_BOOK_GENRE).toString());
+
+        context.session.put(SAVED_PARAMETERS, generateParameters(parameters));
+        getBookList(request);
+
+        List<BookDTO> bookList = (List<BookDTO>) jsonToDto(context.response.asPrettyString(), DTO_BOOK_LIST);
+        saveBookInformation(bookList.get(0));
+    }
+
     private void validateBookStatus(String bookId, String checkedStatus) {
         BookDTO bookDto = (BookDTO) jsonToDto(context.response.asPrettyString(), DTO_BOOK);
         assertEquals(checkedStatus, Boolean.toString(bookDto.isCheckedOut()));
@@ -71,7 +92,7 @@ public class GenericSteps {
             context.session.put(SAVED_BOOK_CREATED_AT, dto.getCreatedAt());
             context.session.put(SAVED_BOOK_CHECKED_OUT, dto.isCheckedOut());
         }
-        context.session.put(SAVED_BOOK_NAME, dto.getTitle());
+        context.session.put(SAVED_BOOK_TITLE, dto.getTitle());
         context.session.put(SAVED_BOOK_GENRE, dto.getGenre());
         context.session.put(SAVED_BOOK_AUTHOR, dto.getAuthor());
         context.session.put(SAVED_BOOK_YEAR_PUBLISHED, dto.getYear());

@@ -84,7 +84,7 @@ public class Constants {
     public static final String SAVED_RESPONSE = "savedResponse";
     public static final String SAVED_PARAMETERS = "savedParameters";
     public static final String SAVED_BOOK_ID = "savedBookId";
-    public static final String SAVED_BOOK_NAME = "savedBookName";
+    public static final String SAVED_BOOK_TITLE = "savedBookName";
     public static final String SAVED_BOOK_GENRE = "savedBookGenre";
     public static final String SAVED_BOOK_AUTHOR = "savedBookAuthor";
     public static final String SAVED_BOOK_CREATED_AT = "savedBookCreatedAt";
