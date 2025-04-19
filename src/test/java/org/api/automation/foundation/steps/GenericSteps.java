@@ -106,7 +106,7 @@ public class GenericSteps {
         if (context.session.containsKey(SAVED_FAKER)) {
             faker = (Faker) context.session.get(SAVED_FAKER);
         } else {
-            faker = new Faker(Locale.GERMAN);
+            faker = new Faker(Locale.ENGLISH);
             context.session.put(SAVED_FAKER, faker);
         }
         return faker;
