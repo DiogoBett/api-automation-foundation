@@ -28,12 +28,30 @@ public class ViewBookSteps {
         getBook(context.requestSetup(SCOPE_EXAMPLE_1), bookId);
     }
 
+    @When("User makes a GET request to view books with Name {string}")
+    public void viewBookWithName(String bookTitle) {
+        RequestSpecification request = context.requestSetup(SCOPE_EXAMPLE_1);
+        request.queryParam(QUERY_SEARCH, bookTitle);
+
+        context.session.put(SAVED_PARAMETERS, generateParameters(Collections.singletonMap(QUERY_SEARCH, bookTitle)));
+        getBookList(request);
+    }
+
     @When("User makes a GET request to view books with Genre {string}")
     public void viewBookWithGenre(String bookGenre) {
         RequestSpecification request = context.requestSetup(SCOPE_EXAMPLE_1);
         request.queryParam(QUERY_GENRE, bookGenre);
 
         context.session.put(SAVED_PARAMETERS, generateParameters(Collections.singletonMap(QUERY_GENRE, bookGenre)));
+        getBookList(request);
+    }
+
+    @When("User makes a GET request to view books with {string} Status {string}")
+    public void viewBookWithStatus(String bookStatus) {
+        RequestSpecification request = context.requestSetup(SCOPE_EXAMPLE_1);
+        request.queryParam(QUERY_STATUS, bookStatus);
+
+        context.session.put(SAVED_PARAMETERS, generateParameters(Collections.singletonMap(QUERY_STATUS, bookStatus)));
         getBookList(request);
     }
 
