@@ -1,7 +1,12 @@
 package org.api.automation.foundation.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
+import java.time.LocalDateTime;
+
+import static org.api.automation.foundation.constants.Constants.PATTERN_DATE_CREATED_AT;
 
 @Data
 public class BookDTO {
@@ -25,5 +30,6 @@ public class BookDTO {
     private boolean checkedOut;
 
     @JsonProperty("createdAt")
-    private String createdAt;
+    @JsonFormat(pattern = PATTERN_DATE_CREATED_AT)
+    private LocalDateTime createdAt;
 }
