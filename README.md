@@ -10,7 +10,8 @@
 
 ### Guidelines:
 * How to run:
-    1. Setup 'config.properties' (Troubleshooting);
+    1. Setup 'config.properties' (Optional)
+       * Read the FAQ section for more information.
     2. Open a terminal inside the project and type:
        * `mvn test` (Run all tests);
        * `mvn test -Dcucumber.filter.tags=@Tag` (Run specific tests).
@@ -68,11 +69,19 @@
 * Lombok - https://projectlombok.org/features/
 
 ### FAQ / Troubleshooting
-* Currently In Development (WIP):
-  * A
-  * B
-* Uses the 'postman-library-api' as an example;
-  * https://glitch.com/edit/#!/postman-library-api 
-* Additional Documentation Here (TODO):
-  * A
-  * B
+* The current implementation uses the 'postman-library-api' as an example;
+  * https://glitch.com/edit/#!/postman-library-api
+* Configuring the .properties file isn't required for demonstration purposes of the 'postman-library-api' due to it not requiring authentication;
+  * If your project uses OAuth2 which is the case for most APIs, you will need to configure the 'config.properties' file;
+    * automation.api.id = <client_id>;
+    * automation.api.secret = <client_secret>;
+    * automation.api.environment = <environment>;
+    * project.url.X = <base_url> (You can add as many base URLs as you want).
+* Utility Class Documentation:
+  * AuthenticationUtil - Configure additional urls, scopes, ids and secrets;
+  * FileUtil is currently unused, but it's useful for file based flows;
+  * HeadersUtil - Configure scope specific and default headers;
+  * JSONUtil - Used to convert JSONs to DTOs and vice versa;
+  * PropertiesUtil - Used to load and handle properties;
+  * TestContext - Setup and save test context data;
+  * TestListener - Log and handle test lifecycle events.
