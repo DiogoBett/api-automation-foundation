@@ -7,7 +7,6 @@ import io.cucumber.java.en.Then;
 import lombok.extern.slf4j.Slf4j;
 import org.api.automation.foundation.model.BookDTO;
 import org.api.automation.foundation.model.MessageDTO;
-import org.junit.Assert;
 
 import java.util.Locale;
 import java.util.Map;
@@ -78,6 +77,7 @@ public class GenericSteps {
         context.session.put(SAVED_BOOK_YEAR_PUBLISHED, dto.getYear());
     }
 
+    /* Useful for Complex Scenarios
     public static void wait(int seconds) {
         try {
             Thread.sleep((long) seconds * TIME_ONE_SECOND_IN_MILLIS);
@@ -85,7 +85,7 @@ public class GenericSteps {
             log.error(LOG_ERROR_WAIT + seconds);
             Assert.fail(LOG_ERROR_WAIT + seconds);
         }
-    }
+    }*/
 
     public static boolean hasTag(Scenario scenario, String tag) {
         return scenario.getSourceTagNames().contains(tag);
