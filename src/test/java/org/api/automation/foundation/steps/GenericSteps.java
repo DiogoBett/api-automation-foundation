@@ -30,8 +30,7 @@ public class GenericSteps {
     public static void createAndSaveBook() {
         postBook(dtoToString(generateBook()));
         assertEquals(201, context.response.getStatusCode());
-        context.session.remove(SAVED_REQUEST);
-        saveBookInformation();
+        saveBookInformation((BookDTO) jsonToDto(context.session.get(SAVED_REQUEST).toString(), DTO_BOOK));
     }
 
     @Then("User should get a status code {int} from the request")
@@ -43,7 +42,6 @@ public class GenericSteps {
     public void validateMultipleStatusCodes(int statusCode) {
         for (int i = 0; i < context.session.size(); i++) {
             String status = SAVED_STATUS + i;
-
             if (context.session.containsKey(status)) {
                 assertTrue(context.session.get(status).toString().contains(String.valueOf(statusCode)));
             }
@@ -68,15 +66,16 @@ public class GenericSteps {
         assertEquals(bookId, bookDto.getId());
     }
 
-    private static void saveBookInformation() {
-        BookDTO bookDto = (BookDTO) jsonToDto(context.response.asPrettyString(), DTO_BOOK);
-        context.session.put(SAVED_BOOK_ID, bookDto.getId());
-        context.session.put(SAVED_BOOK_NAME, bookDto.getTitle());
-        context.session.put(SAVED_BOOK_GENRE, bookDto.getGenre());
-        context.session.put(SAVED_BOOK_AUTHOR, bookDto.getAuthor());
-        context.session.put(SAVED_BOOK_YEAR_PUBLISHED, bookDto.getYear());
-        context.session.put(SAVED_BOOK_CREATED_AT, bookDto.getCreatedAt());
-        context.session.put(SAVED_BOOK_CHECKED_OUT, bookDto.isCheckedOut());
+    private static void saveBookInformation(BookDTO dto) {
+        if (!(dto.getId() == null)) {
+            context.session.put(SAVED_BOOK_ID, dto.getId());
+            context.session.put(SAVED_BOOK_CREATED_AT, dto.getCreatedAt());
+            context.session.put(SAVED_BOOK_CHECKED_OUT, dto.isCheckedOut());
+        }
+        context.session.put(SAVED_BOOK_NAME, dto.getTitle());
+        context.session.put(SAVED_BOOK_GENRE, dto.getGenre());
+        context.session.put(SAVED_BOOK_AUTHOR, dto.getAuthor());
+        context.session.put(SAVED_BOOK_YEAR_PUBLISHED, dto.getYear());
     }
 
     public static void wait(int seconds) {

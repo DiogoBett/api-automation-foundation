@@ -16,7 +16,7 @@ public class Constants {
     public static final String CUCUMBER_PLUGIN_PRETTY = "pretty:target/cucumber-report/cucumber.txt";
     // TODO: Revert CUCUMBER_TAGS
     // Temporary - Original: @GET or @POST or @PATCH or @DELETE
-    public static final String CUCUMBER_TAGS = "@GET";
+    public static final String CUCUMBER_TAGS = "@GET or @POST";
     public static final String DTO_BOOK = "bookDto";
     public static final String DTO_BOOK_LIST = "bookListDto";
     public static final String DTO_MESSAGE = "exampleDto";
@@ -65,6 +65,7 @@ public class Constants {
     public static final String PARAMETER_ID = "{id}";
     public static final String PATH_JSON = "src/test/resources/json/";
     public static final String PATH_PROPERTIES = "src/test/resources/config.properties";
+    public static final String PATTERN_DATE_CREATED_AT = "yyyy-MM-dd HH:mm:ss";
     public static final String PROPERTY_API_ID = "automation.api.id";
     public static final String PROPERTY_API_SC = "automation.api.sc";
     public static final String PROPERTY_ENVIRONMENT = "automation.api.environment";
