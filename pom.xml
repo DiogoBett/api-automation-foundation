@@ -7,7 +7,7 @@
 
     <groupId>org.api.automation.foundation</groupId>
     <artifactId>api-automation-foundation</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0</version>
     <name>api-automation-foundation</name>
     <description>API Automation | Foundation</description>
     <packaging>jar</packaging>
