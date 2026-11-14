@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '0 0 * * 5'
   workflow_dispatch:
     inputs:
       environment:
@@ -57,12 +59,14 @@ jobs:
         run: mvn ${MAVEN_CLI_OPTS} ${MAVEN_OPTS} test -Denvironment=${TEST_ENVIRONMENT}
 
       - name: Logging
+        if: always()
         run: |
           echo "Extracting Logs..."
           cat target/logs/execution.log || echo "No execution.log found"
           echo "Generating Test Report..."
 
       - name: Test Report
+        if: always()
         uses: actions/upload-artifact@v7
         with:
           name: test_report
