@@ -7,7 +7,8 @@ public class Constants {
   public static final String CUCUMBER_GLUE = "io.github.diogobett.steps";
   public static final String CUCUMBER_PLUGINS =
       "pretty:target/cucumber-report/cucumber.txt,html:target/generated-report.html,"
-          + "json:target/cucumber-report/cucumber.json,io.github.diogobett.utils.TestListener";
+          + "json:target/cucumber-report/cucumber.json,json:target/generated-report.json,"
+          + "io.github.diogobett.utils.TestListener";
   public static final String CUCUMBER_TAGS = "@GET or @POST or @PUT or @PATCH or @DELETE";
   public static final String EMPTY_SPACE = " ";
   public static final String ENDPOINT_USERS = "/api/users";
