@@ -1,11 +1,11 @@
 package org.api.automation.foundation.steps;
 
-import com.github.javafaker.Faker;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
+import net.datafaker.Faker;
 import org.api.automation.foundation.model.BookDTO;
 import org.api.automation.foundation.model.MessageDTO;
 
