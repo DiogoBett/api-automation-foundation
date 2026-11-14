@@ -1,7 +1,7 @@
 package io.github.diogobett.utils;
 
 import static io.github.diogobett.constants.Constants.*;
-import static io.github.diogobett.utils.PropertiesUtil.getProperty;
+import static io.github.diogobett.utils.PropertiesUtil.getBaseUrl;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -24,11 +24,9 @@ public final class TestContext {
     this.headers = new HeadersUtil();
   }
 
-  public RequestSpecification requestSetup(String scope) {
+  public RequestSpecification requestSetup() {
     RestAssured.reset();
-    RestAssured.baseURI = setupBaseUri(scope);
-    headers.setupScope(scope);
-    headers.setupAuth();
+    RestAssured.baseURI = getBaseUrl();
     return RestAssured.given().headers(headers.getHeaders());
   }
 
@@ -43,17 +41,6 @@ public final class TestContext {
         session.put(SAVED_REQUEST + counter, session.get(SAVED_REQUEST).toString());
       }
       session.put(SAVED_RESPONSE + counter, response.asPrettyString());
-    }
-  }
-
-  private String setupBaseUri(String scope) {
-    switch (scope) {
-      case SCOPE_EXAMPLE_2:
-        return getProperty(PROPERTY_URL_2);
-      case SCOPE_EXAMPLE_3:
-        return getProperty(PROPERTY_URL_3);
-      default:
-        return getProperty(PROPERTY_URL_1);
     }
   }
 }

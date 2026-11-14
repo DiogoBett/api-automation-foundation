@@ -1,11 +1,6 @@
 package io.github.diogobett.constants;
 
 public class Constants {
-  public static final String AUTH_BEARER = "Bearer ";
-  public static final String AUTH_CREDENTIALS = "client_credentials";
-  public static final String AUTH_GRANT = "grant_type";
-  public static final String AUTH_SCOPE = "scope";
-  public static final String AUTH_TOKEN = "access_token";
   public static final String CHARSET_UTF = "UTF-8";
   public static final String CONTENT_TYPE_JSON = "application/json";
   public static final String CUCUMBER_FEATURES = "features";
@@ -13,25 +8,13 @@ public class Constants {
   public static final String CUCUMBER_PLUGINS =
       "pretty:target/cucumber-report/cucumber.txt,html:target/generated-report.html,"
           + "json:target/cucumber-report/cucumber.json,io.github.diogobett.utils.TestListener";
-  public static final String CUCUMBER_TAGS = "@GET or @POST or @PATCH or @DELETE";
-  public static final String DTO_BOOK = "bookDto";
-  public static final String DTO_BOOK_LIST = "bookListDto";
-  public static final String DTO_MESSAGE = "exampleDto";
-  public static final String EMPTY_JSON = "{}";
+  public static final String CUCUMBER_TAGS = "@GET or @POST or @PUT or @PATCH or @DELETE";
   public static final String EMPTY_SPACE = " ";
-  public static final String ENDPOINT_EXAMPLE_1 = "/books";
-  public static final String ENDPOINT_EXAMPLE_2 = "/books/{id}";
-  public static final String ENDPOINT_OAUTH2 = "/OAuth2ClientCredentialsGrant/v1/token";
-  public static final String FORMAT_JSON = ".json";
+  public static final String ENDPOINT_USERS = "/api/users";
   public static final String HEADER_ACCEPT = "Accept";
-  public static final String HEADER_AUTH = "Authorization";
   public static final String HEADER_CONTENT_TYPE = "Content-Type";
-  public static final String HEADER_ENVIRONMENT = "Environment";
-  public static final String LOG_ERROR_ACTUAL = " | ACTUAL VALUE: ";
   public static final String LOG_ERROR_CHECKSUM = "IO EXCEPTION WHILE GENERATING CHECKSUM: ";
   public static final String LOG_ERROR_CONTEXT = "TEST CONTEXT HASN'T BEEN INITIALIZED";
-  public static final String LOG_ERROR_DTO_ARGUMENT = "No valid argument for the 'dto' value: \n";
-  public static final String LOG_ERROR_EXPECTED = "EXPECTED VALUE: ";
   public static final String LOG_ERROR_IO_COMPARE = "IO EXCEPTION WHILE COMPARING FILES";
   public static final String LOG_ERROR_IO_FILE = "IO EXCEPTION WHILE CREATING FILE";
   public static final String LOG_ERROR_IO_FILE_STREAM =
@@ -40,9 +23,6 @@ public class Constants {
   public static final String LOG_ERROR_IO_PROPERTIES =
       "IO EXCEPTION WHILE SETTING UP PROPERTIES FILE";
   public static final String LOG_ERROR_IO_ZIP = "IO EXCEPTION WHILE ZIPPING FILE";
-  public static final String LOG_ERROR_READ_DTO = "Unable to read DTO: \n";
-  public static final String LOG_ERROR_READ_JSON_FILE = "Unable to read JSON file from: \n";
-  public static final String LOG_ERROR_READ_JSON_STRING = "Unable to read JSON string: \n";
   public static final String LOG_ERROR_RESPONSE = "RESPONSE FROM TEST CONTEXT DOESN'T EXIST";
   // public static final String LOG_ERROR_WAIT = "UNABLE TO WAIT (X) SECONDS: ";
   public static final String LOG_INFO_ENDPOINT = "  ENDPOINT: ";
@@ -66,39 +46,15 @@ public class Constants {
   public static final String LOG_INFO_TEST_STATUS_MULTIPLE = "  STATUS #";
   public static final String LOG_WARN_INVALID_PROPERTY = "Property OR Value doesn't exist: \n";
   public static final String PARAMETER_ID = "{id}";
-  public static final String PATH_JSON = "src/test/resources/json/";
   public static final String PATH_PROPERTIES = "src/test/resources/config.properties";
-  public static final String PATTERN_DATE_CREATED_AT = "yyyy-MM-dd HH:mm:ss";
-  public static final String PROPERTY_API_ID = "automation.api.id";
-  public static final String PROPERTY_API_SC = "automation.api.sc";
-  public static final String PROPERTY_ENVIRONMENT = "automation.api.environment";
-  public static final String PROPERTY_TOKEN_OAUTH = "automation.api.token.oauth";
-  public static final String PROPERTY_URL_1 = "project.url.1";
-  public static final String PROPERTY_URL_2 = "project.url.2";
-  public static final String PROPERTY_URL_3 = "project.url.3";
-  public static final String QUERY_GENRE = "genre";
-  public static final String QUERY_SEARCH = "search";
-  public static final String QUERY_STATUS = "checkedOut";
-  public static final String REGEX_MISSING_PROPERTY = "should have required property '\\w+'";
-  public static final String SAVED_BOOK_AUTHOR = "savedBookAuthor";
-  public static final String SAVED_BOOK_CHECKED_OUT = "savedBookCheckedOut";
-  public static final String SAVED_BOOK_CREATED_AT = "savedBookCreatedAt";
-  public static final String SAVED_BOOK_DTO = "savedBookDto";
-  public static final String SAVED_BOOK_GENRE = "savedBookGenre";
-  public static final String SAVED_BOOK_ID = "savedBookId";
-  public static final String SAVED_BOOK_TITLE = "savedBookName";
-  public static final String SAVED_BOOK_YEAR_PUBLISHED = "savedBookYearPublished";
+  public static final String PROPERTY_BASE_URL_PREFIX = "base.url.";
+  public static final String PROPERTY_ENVIRONMENT = "environment";
   public static final String SAVED_ENDPOINT = "savedEndpoint";
-  public static final String SAVED_FAKER = "savedFaker";
   public static final String SAVED_HEADERS = "savedHeaders";
   public static final String SAVED_ID = "savedId";
-  public static final String SAVED_PARAMETERS = "savedParameters";
   public static final String SAVED_REQUEST = "savedRequest";
   public static final String SAVED_RESPONSE = "savedResponse";
   public static final String SAVED_STATUS = "savedStatus";
-  public static final String SCOPE_EXAMPLE_1 = "EXAMPLE_1";
-  public static final String SCOPE_EXAMPLE_2 = "EXAMPLE_2";
-  public static final String SCOPE_EXAMPLE_3 = "EXAMPLE_3";
   public static final String TAG_MULTIPLE = "@Multiple";
   public static final String TEST_REPORT_ENDPOINT = "Endpoint";
   public static final String TEST_REPORT_HEADERS = "Headers";

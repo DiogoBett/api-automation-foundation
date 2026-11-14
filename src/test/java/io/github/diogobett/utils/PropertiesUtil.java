@@ -5,6 +5,7 @@ import static io.github.diogobett.constants.Constants.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Base64;
+import java.util.Locale;
 import java.util.Properties;
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,6 +28,20 @@ public class PropertiesUtil {
 
   public static String getProperty(String key) {
     return properties.getProperty(key);
+  }
+
+  public static String getBaseUrl() {
+    String environment = getProperty(PROPERTY_ENVIRONMENT);
+    if (environment == null || environment.isBlank()) {
+      throw new IllegalStateException("The environment property must be configured.");
+    }
+
+    String baseUrl = getProperty(PROPERTY_BASE_URL_PREFIX + environment.toLowerCase(Locale.ROOT));
+    if (baseUrl == null || baseUrl.isBlank()) {
+      throw new IllegalStateException("No base URL is configured for environment: " + environment);
+    }
+
+    return baseUrl;
   }
 
   public static String getEncodedProperty(String key) {
