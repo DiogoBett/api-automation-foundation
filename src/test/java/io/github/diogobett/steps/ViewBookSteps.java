@@ -1,19 +1,19 @@
-package org.api.automation.foundation.steps;
+package io.github.diogobett.steps;
 
-import static org.api.automation.foundation.constants.Constants.*;
-import static org.api.automation.foundation.steps.GenericSteps.generateParameters;
-import static org.api.automation.foundation.steps.Hooks.context;
-import static org.api.automation.foundation.utils.JSONUtil.jsonToDto;
+import static io.github.diogobett.constants.Constants.*;
+import static io.github.diogobett.steps.GenericSteps.generateParameters;
+import static io.github.diogobett.steps.Hooks.context;
+import static io.github.diogobett.utils.JSONUtil.jsonToDto;
 import static org.junit.Assert.*;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.diogobett.model.BookDTO;
 import io.restassured.specification.RequestSpecification;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
-import org.api.automation.foundation.model.BookDTO;
 
 @Slf4j
 public class ViewBookSteps {

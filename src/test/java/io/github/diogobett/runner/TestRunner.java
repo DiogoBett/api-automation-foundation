@@ -1,6 +1,6 @@
-package org.api.automation.foundation.runner;
+package io.github.diogobett.runner;
 
-import static org.api.automation.foundation.constants.Constants.*;
+import static io.github.diogobett.constants.Constants.*;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;

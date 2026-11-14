@@ -1,4 +1,4 @@
-package org.api.automation.foundation.model;
+package io.github.diogobett.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;

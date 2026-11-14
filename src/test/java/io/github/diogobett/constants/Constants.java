@@ -1,4 +1,4 @@
-package org.api.automation.foundation.constants;
+package io.github.diogobett.constants;
 
 public class Constants {
   public static final String AUTH_BEARER = "Bearer ";
@@ -9,11 +9,10 @@ public class Constants {
   public static final String CHARSET_UTF = "UTF-8";
   public static final String CONTENT_TYPE_JSON = "application/json";
   public static final String CUCUMBER_FEATURES = "src/test/resources/features";
-  public static final String CUCUMBER_GLUE = "org/api/automation/foundation/steps";
+  public static final String CUCUMBER_GLUE = "io.github.diogobett.steps";
   public static final String CUCUMBER_PLUGIN_HTML = "html:target/generated-report.html";
   public static final String CUCUMBER_PLUGIN_JSON = "json:target/cucumber-report/cucumber.json";
-  public static final String CUCUMBER_PLUGIN_LISTENER =
-      "org.api.automation.foundation.utils.TestListener";
+  public static final String CUCUMBER_PLUGIN_LISTENER = "io.github.diogobett.utils.TestListener";
   public static final String CUCUMBER_PLUGIN_PRETTY = "pretty:target/cucumber-report/cucumber.txt";
   public static final String CUCUMBER_TAGS = "@GET or @POST or @PATCH or @DELETE";
   public static final String DTO_BOOK = "bookDto";

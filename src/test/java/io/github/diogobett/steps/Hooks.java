@@ -1,15 +1,15 @@
-package org.api.automation.foundation.steps;
+package io.github.diogobett.steps;
 
-import static org.api.automation.foundation.constants.Constants.*;
-import static org.api.automation.foundation.steps.GenericSteps.getEndpoint;
-import static org.api.automation.foundation.steps.GenericSteps.hasTag;
+import static io.github.diogobett.constants.Constants.*;
+import static io.github.diogobett.steps.GenericSteps.getEndpoint;
+import static io.github.diogobett.steps.GenericSteps.hasTag;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.github.diogobett.utils.TestContext;
 import io.restassured.http.ContentType;
 import lombok.extern.slf4j.Slf4j;
-import org.api.automation.foundation.utils.TestContext;
 import org.junit.Assert;
 
 @Slf4j

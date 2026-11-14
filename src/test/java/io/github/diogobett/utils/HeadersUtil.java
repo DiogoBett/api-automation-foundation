@@ -1,8 +1,8 @@
-package org.api.automation.foundation.utils;
+package io.github.diogobett.utils;
 
+import static io.github.diogobett.constants.Constants.*;
+import static io.github.diogobett.utils.PropertiesUtil.getProperty;
 import static java.lang.System.arraycopy;
-import static org.api.automation.foundation.constants.Constants.*;
-import static org.api.automation.foundation.utils.PropertiesUtil.getProperty;
 
 import io.restassured.http.Header;
 import io.restassured.http.Headers;

@@ -1,22 +1,22 @@
-package org.api.automation.foundation.steps;
+package io.github.diogobett.steps;
 
-import static org.api.automation.foundation.constants.Constants.*;
-import static org.api.automation.foundation.steps.GenericSteps.generateNumber;
-import static org.api.automation.foundation.steps.GenericSteps.getValue;
-import static org.api.automation.foundation.steps.Hooks.context;
-import static org.api.automation.foundation.utils.JSONUtil.dtoToString;
-import static org.api.automation.foundation.utils.JSONUtil.jsonToDto;
+import static io.github.diogobett.constants.Constants.*;
+import static io.github.diogobett.steps.GenericSteps.generateNumber;
+import static io.github.diogobett.steps.GenericSteps.getValue;
+import static io.github.diogobett.steps.Hooks.context;
+import static io.github.diogobett.utils.JSONUtil.dtoToString;
+import static io.github.diogobett.utils.JSONUtil.jsonToDto;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.diogobett.model.BookDTO;
+import io.github.diogobett.model.MessageDTO;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import java.time.LocalDate;
 import lombok.extern.slf4j.Slf4j;
-import org.api.automation.foundation.model.BookDTO;
-import org.api.automation.foundation.model.MessageDTO;
 
 @Slf4j
 public class CreateBookSteps {

@@ -1,19 +1,21 @@
-package org.api.automation.foundation.steps;
+package io.github.diogobett.steps;
 
-import static org.api.automation.foundation.constants.Constants.*;
-import static org.api.automation.foundation.steps.CreateBookSteps.generateBook;
-import static org.api.automation.foundation.steps.CreateBookSteps.postBook;
-import static org.api.automation.foundation.steps.Hooks.context;
-import static org.api.automation.foundation.steps.ViewBookSteps.getBookList;
-import static org.api.automation.foundation.utils.JSONUtil.dtoToString;
-import static org.api.automation.foundation.utils.JSONUtil.jsonToDto;
-import static org.api.automation.foundation.utils.PropertiesUtil.getProperty;
+import static io.github.diogobett.constants.Constants.*;
+import static io.github.diogobett.steps.CreateBookSteps.generateBook;
+import static io.github.diogobett.steps.CreateBookSteps.postBook;
+import static io.github.diogobett.steps.Hooks.context;
+import static io.github.diogobett.steps.ViewBookSteps.getBookList;
+import static io.github.diogobett.utils.JSONUtil.dtoToString;
+import static io.github.diogobett.utils.JSONUtil.jsonToDto;
+import static io.github.diogobett.utils.PropertiesUtil.getProperty;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.github.diogobett.model.BookDTO;
+import io.github.diogobett.model.MessageDTO;
 import io.restassured.specification.RequestSpecification;
 import java.util.HashMap;
 import java.util.List;
@@ -22,8 +24,6 @@ import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 import lombok.extern.slf4j.Slf4j;
 import net.datafaker.Faker;
-import org.api.automation.foundation.model.BookDTO;
-import org.api.automation.foundation.model.MessageDTO;
 
 @Slf4j
 public class GenericSteps {

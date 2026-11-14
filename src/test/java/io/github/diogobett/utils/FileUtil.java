@@ -1,6 +1,6 @@
-package org.api.automation.foundation.utils;
+package io.github.diogobett.utils;
 
-import static org.api.automation.foundation.constants.Constants.*;
+import static io.github.diogobett.constants.Constants.*;
 
 import java.io.*;
 import java.nio.file.Files;

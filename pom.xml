@@ -5,7 +5,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.api.automation.foundation</groupId>
+    <groupId>io.github.diogobett</groupId>
     <artifactId>api-automation-foundation</artifactId>
     <version>0.1.0</version>
     <name>api-automation-foundation</name>

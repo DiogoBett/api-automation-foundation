@@ -1,6 +1,6 @@
-package org.api.automation.foundation.utils;
+package io.github.diogobett.utils;
 
-import static org.api.automation.foundation.constants.Constants.*;
+import static io.github.diogobett.constants.Constants.*;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -8,13 +8,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import io.github.diogobett.model.BookDTO;
+import io.github.diogobett.model.MessageDTO;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import org.api.automation.foundation.model.BookDTO;
-import org.api.automation.foundation.model.MessageDTO;
 import org.junit.Assert;
 
 @Slf4j

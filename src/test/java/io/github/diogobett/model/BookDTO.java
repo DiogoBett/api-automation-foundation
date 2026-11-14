@@ -1,6 +1,6 @@
-package org.api.automation.foundation.model;
+package io.github.diogobett.model;
 
-import static org.api.automation.foundation.constants.Constants.PATTERN_DATE_CREATED_AT;
+import static io.github.diogobett.constants.Constants.PATTERN_DATE_CREATED_AT;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;

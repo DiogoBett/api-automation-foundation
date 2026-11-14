@@ -1,12 +1,12 @@
-package org.api.automation.foundation.utils;
+package io.github.diogobett.utils;
 
-import static org.api.automation.foundation.constants.Constants.*;
-import static org.api.automation.foundation.steps.GenericSteps.getEndpoint;
+import static io.github.diogobett.constants.Constants.*;
+import static io.github.diogobett.steps.GenericSteps.getEndpoint;
 
 import io.cucumber.plugin.ConcurrentEventListener;
 import io.cucumber.plugin.event.*;
+import io.github.diogobett.steps.Hooks;
 import lombok.extern.slf4j.Slf4j;
-import org.api.automation.foundation.steps.Hooks;
 
 @Slf4j
 public class TestListener implements ConcurrentEventListener {
