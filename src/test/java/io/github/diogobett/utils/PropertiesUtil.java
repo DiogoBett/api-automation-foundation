@@ -31,7 +31,8 @@ public class PropertiesUtil {
   }
 
   public static String getBaseUrl() {
-    String environment = getProperty(PROPERTY_ENVIRONMENT);
+    String environment =
+        System.getProperty(PROPERTY_ENVIRONMENT, getProperty(PROPERTY_ENVIRONMENT));
     if (environment == null || environment.isBlank()) {
       throw new IllegalStateException("The environment property must be configured.");
     }
