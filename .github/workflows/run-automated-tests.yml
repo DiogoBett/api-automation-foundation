@@ -68,6 +68,7 @@ jobs:
           name: test_report
           path: |
             target/generated-report.html
+            target/generated-report.json
             target/logs/execution.log
           retention-days: 7
           overwrite: true
