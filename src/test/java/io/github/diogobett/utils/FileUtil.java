@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 @Slf4j
 public class FileUtil {
@@ -95,7 +95,7 @@ public class FileUtil {
       return Files.readAllBytes(Paths.get(filepath));
     } catch (IOException e) {
       log.error(LOG_ERROR_IO_FILE_STREAM + filepath, e);
-      Assert.fail(LOG_ERROR_IO_FILE_STREAM + filepath);
+      Assertions.fail(LOG_ERROR_IO_FILE_STREAM + filepath);
     }
     return null;
   }

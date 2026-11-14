@@ -6,7 +6,7 @@ import static io.github.diogobett.steps.GenericSteps.getValue;
 import static io.github.diogobett.steps.Hooks.context;
 import static io.github.diogobett.utils.JSONUtil.dtoToString;
 import static io.github.diogobett.utils.JSONUtil.jsonToDto;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

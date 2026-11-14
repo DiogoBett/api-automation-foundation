@@ -5,7 +5,7 @@ import static io.github.diogobett.steps.CreateBookSteps.generateBook;
 import static io.github.diogobett.steps.Hooks.context;
 import static io.github.diogobett.utils.JSONUtil.dtoToString;
 import static io.github.diogobett.utils.JSONUtil.jsonToDto;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

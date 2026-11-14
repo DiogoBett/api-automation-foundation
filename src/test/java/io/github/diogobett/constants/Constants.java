@@ -8,12 +8,11 @@ public class Constants {
   public static final String AUTH_TOKEN = "access_token";
   public static final String CHARSET_UTF = "UTF-8";
   public static final String CONTENT_TYPE_JSON = "application/json";
-  public static final String CUCUMBER_FEATURES = "src/test/resources/features";
+  public static final String CUCUMBER_FEATURES = "features";
   public static final String CUCUMBER_GLUE = "io.github.diogobett.steps";
-  public static final String CUCUMBER_PLUGIN_HTML = "html:target/generated-report.html";
-  public static final String CUCUMBER_PLUGIN_JSON = "json:target/cucumber-report/cucumber.json";
-  public static final String CUCUMBER_PLUGIN_LISTENER = "io.github.diogobett.utils.TestListener";
-  public static final String CUCUMBER_PLUGIN_PRETTY = "pretty:target/cucumber-report/cucumber.txt";
+  public static final String CUCUMBER_PLUGINS =
+      "pretty:target/cucumber-report/cucumber.txt,html:target/generated-report.html,"
+          + "json:target/cucumber-report/cucumber.json,io.github.diogobett.utils.TestListener";
   public static final String CUCUMBER_TAGS = "@GET or @POST or @PATCH or @DELETE";
   public static final String DTO_BOOK = "bookDto";
   public static final String DTO_BOOK_LIST = "bookListDto";

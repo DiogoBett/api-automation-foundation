@@ -10,7 +10,7 @@ import io.cucumber.java.Scenario;
 import io.github.diogobett.utils.TestContext;
 import io.restassured.http.ContentType;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 @Slf4j
 public class Hooks {
@@ -26,7 +26,7 @@ public class Hooks {
   public void tearDown(Scenario scenario) {
     if (context == null) {
       log.error(LOG_ERROR_CONTEXT);
-      Assert.fail(LOG_ERROR_CONTEXT);
+      Assertions.fail(LOG_ERROR_CONTEXT);
     }
 
     if (hasTag(scenario, TAG_MULTIPLE)) {
@@ -78,7 +78,7 @@ public class Hooks {
           context.response.asPrettyString(), ContentType.JSON.toString(), TEST_REPORT_RESPONSE);
     } else {
       log.error(LOG_ERROR_RESPONSE);
-      Assert.fail(LOG_ERROR_RESPONSE);
+      Assertions.fail(LOG_ERROR_RESPONSE);
     }
   }
 }

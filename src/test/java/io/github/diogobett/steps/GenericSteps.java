@@ -8,8 +8,8 @@ import static io.github.diogobett.steps.ViewBookSteps.getBookList;
 import static io.github.diogobett.utils.JSONUtil.dtoToString;
 import static io.github.diogobett.utils.JSONUtil.jsonToDto;
 import static io.github.diogobett.utils.PropertiesUtil.getProperty;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
@@ -58,7 +58,7 @@ public class GenericSteps {
     MessageDTO responseDto = (MessageDTO) jsonToDto(context.response.asPrettyString(), DTO_MESSAGE);
     String assertionError =
         LOG_ERROR_EXPECTED + errorMessage + LOG_ERROR_ACTUAL + responseDto.getMessage();
-    assertTrue(assertionError, responseDto.getMessage().contains(errorMessage));
+    assertTrue(responseDto.getMessage().contains(errorMessage), assertionError);
   }
 
   @Then("User should verify that the book with id {string} checked status is {string}")
@@ -107,7 +107,7 @@ public class GenericSteps {
           Thread.sleep((long) seconds * TIME_ONE_SECOND_IN_MILLIS);
       } catch (InterruptedException e) {
           log.error(LOG_ERROR_WAIT + seconds);
-          Assert.fail(LOG_ERROR_WAIT + seconds);
+          org.junit.jupiter.api.Assertions.fail(LOG_ERROR_WAIT + seconds);
       }
   }*/
 

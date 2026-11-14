@@ -16,6 +16,7 @@
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cucumber.version>8.0.4</cucumber.version>
+        <junit.version>6.1.3</junit.version>
         <rest-assured.version>6.3.0</rest-assured.version>
         <jackson.version>2.23.0</jackson.version>
         <lombok.version>1.18.48</lombok.version>
@@ -28,16 +29,25 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-core</artifactId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
             <version>${cucumber.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>

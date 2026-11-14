@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 @Slf4j
 public class JSONUtil {
@@ -36,13 +36,13 @@ public class JSONUtil {
         default:
           String defaultError = LOG_ERROR_DTO_ARGUMENT + dto;
           log.error(defaultError);
-          Assert.fail(defaultError);
+          Assertions.fail(defaultError);
           return null;
       }
     } catch (Exception e) {
       String exceptionError = LOG_ERROR_READ_JSON_STRING + e.getMessage();
       log.error(exceptionError);
-      Assert.fail(exceptionError);
+      Assertions.fail(exceptionError);
       return null;
     }
   }

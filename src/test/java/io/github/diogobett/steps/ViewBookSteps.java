@@ -4,7 +4,7 @@ import static io.github.diogobett.constants.Constants.*;
 import static io.github.diogobett.steps.GenericSteps.generateParameters;
 import static io.github.diogobett.steps.Hooks.context;
 import static io.github.diogobett.utils.JSONUtil.jsonToDto;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
